@@ -1,0 +1,33 @@
+$ gcl
+GCL (GNU Common Lisp)  2.6.12 CLtL1    Fri Apr 22 15:51:11 UTC 2016
+Source License: LGPL(gcl,gmp), GPL(unexec,bfd,xgcl)
+Binary License:  GPL due to GPL'ed components: (XGCL READLINE UNEXEC)
+Modifications of this banner must retain notice of a compatible license
+Dedicated to the memory of W. Schelter
+
+Use (help) to get some basic information on how to use GCL.
+Temporary directory for compiler files:
+/tmp/
+
+>(load #p "main.lisp")
+;; Loading #p"main.lisp"
+;; Loading #p"xofn.lisp"
+;; Finished loading #p"xofn.lisp"
+;; Loading #p"anyxofn.lisp"
+;; Finished loading #p"anyxofn.lisp"
+;; Loading #p"value.lisp"
+;; Finished loading #p"value.lisp"
+;; Loading #p"region.lisp"
+;; Finished loading #p"region.lisp"
+;; Loading #p"regionlist.lisp"
+;; Finished loading #p"regionlist.lisp"
+Value number bits 4 all bits 1111 msb 1000 not msb 0111
+all regs 0 of 4 =  1, regs [xxxx]
+all regs 1 of 4 =  8, regs [1xxx x1xx xx1x xxx1 0xxx x0xx xx0x xxx0]
+all regs 2 of 4 = 24, regs [11xx 1x1x x11x 1xx1 x1x1 xx11 10xx 1x0x x10x 1xx0 x1x0 xx10 01xx 0x1x x01x 0xx1 x0x1 xx01 00xx 0x0x x00x 0xx0 x0x0 xx00]
+all regs 3 of 4 = 32, regs [111x 11x1 1x11 x111 110x 11x0 1x10 x110 101x 10x1 1x01 x101 100x 10x0 1x00 x100 011x 01x1 0x11 x011 010x 01x0 0x10 x010 001x 00x1 0x01 x001 000x 00x0 0x00 x000]
+all regs 2 to 4 power = 16, regs [1111 1110 1101 1100 1011 1010 1001 1000 0111 0110 0101 0100 0011 0010 0001 0000]
+Total = 81 regions
+;; Finished loading #p"main.lisp"
+
+Note: The number of bits can be changed in main.lisp, line 91.

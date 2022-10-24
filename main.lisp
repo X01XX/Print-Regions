@@ -92,18 +92,28 @@
 
 (setf tot 1)
 
-(format t "~&all regs 0 of ~D =  1, regs [~A]" *value-number-bits* (region-str (region-new 0 *value-mask*))) 
+(format t "~& ~&3 to power of ~D = ~D~& " *value-number-bits* (expt 3 *value-number-bits*))
+(format t "~&Region all X =  1, [~A]" (region-str (region-new 0 *value-mask*))) 
 
-(loop for xx from 1 to (- *value-number-bits* 1) do
-  (setf x (allregs xx *value-number-bits*))
-  (format t "~&all regs ~D of ~D = ~2,' D, regs ~A~&" xx *value-number-bits* (length x) (regionlist-str x))
-  (setf tot (+ tot (length x)))
+(loop for num-non-x-bits from 1 to (- *value-number-bits* 1) do
+  (setf regions (allregs num-non-x-bits *value-number-bits*))
+  (setf num-values (expt 2 num-non-x-bits))
+  (setf xn (x-of-n num-non-x-bits *value-number-bits*))
+  (format t "~& ~&Number values of ~D bits = ~D, " num-non-x-bits num-values)
+  (format t "any ~D of ~D = ~D" num-non-x-bits *value-number-bits* (x-of-n num-non-x-bits *value-number-bits*))
+  (format t ", ~D * ~D = ~D" num-values (x-of-n num-non-x-bits *value-number-bits*) (* num-values xn))
+
+  (format t "~& ~&  ~A (length = ~D)~&" (regionlist-str regions) (length regions))
+  (setf tot (+ tot (length regions)))
 )
 (setf regsx nil)
 (loop for i from 0 to *value-mask* do
      (push (region-new i i) regsx)
 )
+
+(format t "~& ~&2 to the ~D power = ~2,' D~&" *value-number-bits* (expt 2 *value-number-bits*))
+(format t "~& ~&  ~A (length = ~D)" (regionlist-str regsx) (length regsx))
+
 (setf tot (+ tot (length regsx)))
-(format t "~&all regs 2 to ~D power = ~2,' D, regs ~A" *value-number-bits* (length regsx) (regionlist-str regsx))
-(format t "~&Total = ~D regions~&" tot)
+(format t "~& ~&Total region lists = ~D regions (should be = 3 to the ~D power, above)~& ~&" tot *value-number-bits*)
 

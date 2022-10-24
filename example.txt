@@ -22,12 +22,30 @@ Temporary directory for compiler files:
 ;; Loading #p"regionlist.lisp"
 ;; Finished loading #p"regionlist.lisp"
 Value number bits 4 all bits 1111 msb 1000 not msb 0111
-all regs 0 of 4 =  1, regs [xxxx]
-all regs 1 of 4 =  8, regs [1xxx x1xx xx1x xxx1 0xxx x0xx xx0x xxx0]
-all regs 2 of 4 = 24, regs [11xx 1x1x x11x 1xx1 x1x1 xx11 10xx 1x0x x10x 1xx0 x1x0 xx10 01xx 0x1x x01x 0xx1 x0x1 xx01 00xx 0x0x x00x 0xx0 x0x0 xx00]
-all regs 3 of 4 = 32, regs [111x 11x1 1x11 x111 110x 11x0 1x10 x110 101x 10x1 1x01 x101 100x 10x0 1x00 x100 011x 01x1 0x11 x011 010x 01x0 0x10 x010 001x 00x1 0x01 x001 000x 00x0 0x00 x000]
-all regs 2 to 4 power = 16, regs [1111 1110 1101 1100 1011 1010 1001 1000 0111 0110 0101 0100 0011 0010 0001 0000]
-Total = 81 regions
+ 
+3 to power of 4 = 81
+ 
+Region all X =  1, [xxxx]
+ 
+Number values of 1 bits = 2, any 1 of 4 = 4, 2 * 4 = 8
+ 
+  [1xxx x1xx xx1x xxx1 0xxx x0xx xx0x xxx0] (length = 8)
+ 
+Number values of 2 bits = 4, any 2 of 4 = 6, 4 * 6 = 24
+ 
+  [11xx 1x1x x11x 1xx1 x1x1 xx11 10xx 1x0x x10x 1xx0 x1x0 xx10 01xx 0x1x x01x 0xx1 x0x1 xx01 00xx 0x0x x00x 0xx0 x0x0 xx00] (length = 24)
+ 
+Number values of 3 bits = 8, any 3 of 4 = 4, 8 * 4 = 32
+ 
+  [111x 11x1 1x11 x111 110x 11x0 1x10 x110 101x 10x1 1x01 x101 100x 10x0 1x00 x100 011x 01x1 0x11 x011 010x 01x0 0x10 x010 001x 00x1 0x01 x001 000x 00x0 0x00 x000] (length = 32)
+ 
+2 to the 4 power = 16
+ 
+  [1111 1110 1101 1100 1011 1010 1001 1000 0111 0110 0101 0100 0011 0010 0001 0000] (length = 16)
+ 
+Total region lists = 81 regions (should be = 3 to the 4 power, above)
+ 
 ;; Finished loading #p"main.lisp"
+
 
 Note: The number of bits can be changed in main.lisp, line 91.
